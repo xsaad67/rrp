@@ -3,60 +3,7 @@
 @section('css')
 
 <style>
-.box{
-    display: inline-block;
-    vertical-align: top;
-    z-index: 1;
-    border: 1px solid #ccc;
-    background: #f2f2f2;
-    position: relative;
-    padding: 3px  3px 1px 3px;
-    max-height:35px;
-    max-width:35px;
-}
-.box > a{
-	color:#aaa;
-	font-size:20px;
-}
-.upvoted{
-	color:#000 !important;
-}
-.downvoted{
-	color:#000 !important;
-}
 
-.abc-card{
-    padding: 15px;
-    border: 2px solid #ccc;
-    background:#fff;
-}
-
-.ab-bt{
-	display: block;
-    height: 30px;
-    line-height: 30px;
-    font-weight: bold;
-    color: #222;
-    text-indent: 10px;
-    padding: 5px;
-    margin: -5px;
-    border-radius: 3px;
-
-}
-.ab-bt:hover{
-	background: #e7e7e7;
-    text-decoration: none;
-}
-.br-bb{
--webkit-border-top-left-radius: 25px;
--webkit-border-bottom-right-radius: 25px;
--moz-border-radius-topleft: 25px;
--moz-border-radius-bottomright: 25px;
-border-top-left-radius: 25px;
-border-bottom-right-radius: 25px;
-border-bottom: 8px solid #cc30c7;
-
-}
 
 </style>
 
@@ -98,14 +45,18 @@ border-bottom: 8px solid #cc30c7;
 							</div>
 						</div>
 					</div>
-					<hr>
+					
 				@endforeach
 
-				<div class="text-center">
-					{{$posts->links()}}
-				</div>
 				
 			</div>
+
+
+			<div class="mt-5 d-flex justify-content-center">
+				{{$posts->links()}}
+			</div>
+
+
 
 		</div>
 
@@ -124,9 +75,10 @@ border-bottom: 8px solid #cc30c7;
 				@foreach($memeTemplates as $template)
 
 					<a class="row" href="{{$template->link}}" style="color:#000">
-					<div class="media mb-4"><img class="img-fluid col-lg-5" src="{{url('/imagecache/large/'.$template->fileName) }}"  alt="Media">
+					<div class="media mb-4">
+						<img class="img-fluid col-lg-5" src="{{url('/imagecache/large/'.$template->fileName) }}"  alt="{{$template->name}}">
 			            <div class="media-body col-lg-7">
-			                <h5 class="mt-0 mb-1">{{$template->title}}</h5> 
+			                <h5 class="mt-0 mb-1">{{$template->title}}</h5>
 		            	</div>
 		            </div>
 					</a>

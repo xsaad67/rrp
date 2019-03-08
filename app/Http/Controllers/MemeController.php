@@ -17,8 +17,6 @@ class MemeController extends Controller
 		return $image->response();
     }
 
-
-
     public function create($slug=null)
     {
         if($slug){
@@ -29,8 +27,11 @@ class MemeController extends Controller
         }else{
             $template = MemeTemplates::inRandomOrder()->take(1)->first();
         }
+        $width = Image::make($template->templateImage)->width();
+        $height = Image::make($template->templateImage)->height();
         $templates = MemeTemplates::popular()->take(30)->get();
-    	return view('memes.create1',compact('templates','template'));
+
+    	return view('memes.create1',compact('templates','template','width','height'));
     }
 
     public function store(Request $request)

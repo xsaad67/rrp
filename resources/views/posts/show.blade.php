@@ -30,6 +30,29 @@ margin-bottom:25px;
 								<h1 class="text-center">{{$post->title}}</h1>
 								<img src="{{$post->media}}" class="img-fluid">
 							</div>
+							<div class="col-lg-4">
+								<a href="{{$post->link}}">
+									<h2>{{$post->title}}</h2>
+								</a>
+								
+								<span>By</span>
+								<a href="{{$post->user->link}}">{{$post->user->name}}</a>
+
+								<div class="row">
+									<div class="col-lg-8">
+										<div class="box">
+											<a href="javascript:void(0)" id="up-{{$post->id}}" class="upvote" data-id="{{$post->id}}">
+												<i class="fa fa-arrow-up " aria-hidden="true"></i>
+											</a>
+										</div>
+											<div class="box">
+											<a href="javascript:void(0)" id="down-{{$post->id}}" class="downvote" data-id="{{$post->id}}">
+												<i class="fa fa-arrow-down " aria-hidden="true"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<hr>

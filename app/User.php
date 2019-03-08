@@ -61,4 +61,7 @@ class User extends Authenticatable
     public function getDpAttribute(){
         return is_null($this->avatar) ? \Avatar::create($this->name)->setBorder(0,'adf'): asset('images/avatars/'.$this->avatar);
     }
+    public function publishedPost(){
+        return $this->hasMany(Post::class)->published();
+    }
 }

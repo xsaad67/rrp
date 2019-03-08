@@ -9739,3 +9739,58 @@ a.text-dark:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .04)
     -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, .04);
 }
+
+.box{
+    display: inline-block;
+    vertical-align: top;
+    z-index: 1;
+    border: 1px solid #ccc;
+    background: #f2f2f2;
+    position: relative;
+    padding: 3px  3px 1px 3px;
+    max-height:35px;
+    max-width:35px;
+}
+.box > a{
+    color:#aaa;
+    font-size:20px;
+}
+.upvoted{
+    color:#000 !important;
+}
+.downvoted{
+    color:#000 !important;
+}
+
+.abc-card{
+    padding: 15px;
+    border: 2px solid #ccc;
+    background:#fff;
+}
+
+.ab-bt{
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    color: #222;
+    text-indent: 10px;
+    padding: 5px;
+    margin: -5px;
+    border-radius: 3px;
+
+}
+.ab-bt:hover{
+    background: #e7e7e7;
+    text-decoration: none;
+}
+.br-bb{
+-webkit-border-top-left-radius: 25px;
+-webkit-border-bottom-right-radius: 25px;
+-moz-border-radius-topleft: 25px;
+-moz-border-radius-bottomright: 25px;
+border-top-left-radius: 25px;
+border-bottom-right-radius: 25px;
+border-bottom: 8px solid #cc30c7;
+
+}

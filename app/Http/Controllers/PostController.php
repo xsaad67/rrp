@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {   
         $memeTemplates = MemeTemplates::sortTemplatesWithMemes(10);
-        $posts = Post::published()->paginate(20);
+        $posts = Post::published()->paginate(5);
         return view("posts.index",compact("posts","memeTemplates"));
     }
 
@@ -28,7 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**

@@ -40,3 +40,6 @@ Route::post('/meme/store','MemeController@store');
 Route::get('/word','WordController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/users/{slug}','ProfileController@show');
+
+Route::get('/meme/upload','PostController@create');

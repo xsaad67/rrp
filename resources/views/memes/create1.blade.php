@@ -6,7 +6,7 @@
 <div class="container">
 
 
-    
+    {{$template->title}}
     <div class="row">
         <div class="col-lg-8">
              <label class="btn btn-warning btn-file">
@@ -15,6 +15,7 @@
 
         <div class="canvas-wrapper">
             <canvas id="c" width="600" height="600" style="border:2px solid blue;"></canvas>
+
         </div>
 
 
@@ -48,7 +49,9 @@
 <script src="{{asset("css/meme/fabric.js")}}"></script>
 
 <script>
-$(function(){
+    var mainImage = "{{$template->templateImage}}";
+    console.log(mainImage);
+
 
 
 
@@ -56,10 +59,22 @@ $(function(){
 
     var fabric = fabric || window.fabric;
     var canvas = new fabric.Canvas('c');
-    canvas.setBackgroundImage('http://meme.localhost/memetemplates/temp_7EA9D8C2-0A26-F33C-F8A0-543D90DCB985_Archer.jpg', canvas.renderAll.bind(canvas));
+  
 
+    fabric.Image.fromURL(mainImage, function(img) {
+          alert(img.height);
+      img.set({
 
-    $("#change-canvas").click(function(){
+        scaleX: 600/ img.width,
+        scaleY: 600/ img.height,
+        top: 0,
+        left: 0,
+        originX: 'left', originY: 'top'
+      });
+      canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
+    });
+
+   $("#change-canvas").click(function(){
         canvas.setBackgroundImage('http://meme.localhost/images/0723AB3F-3DE1-5486-B749-1507B55407ED.png', canvas.renderAll.bind(canvas));
     });
 
@@ -76,10 +91,10 @@ $(function(){
       }
     }
 
-        $("#imgInp").change(function() {
-          readURL(this);
-          $("#ex").html("");
-        });
+    $("#imgInp").change(function() {
+      readURL(this);
+      $("#ex").html("");
+    });
 
     $('#load-img').click(function() {
         var imgSrc = $('#imgUrl').val();
@@ -142,10 +157,11 @@ $(function(){
 
         // window.open(img);
     });
+ 
 
 })(jQuery, fabric);
 
-});
+
 </script>
 
 @endsection

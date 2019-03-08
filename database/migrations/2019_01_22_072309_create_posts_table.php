@@ -17,8 +17,9 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->text('title');
             $table->text('slug');
+            $table->boolean('hasTitle')->default(0);
             $table->boolean('isGuest')->default(0);
-            $table->string('template_id')->nullable()->comment("reference meme templates data");
+            $table->string('template_id')->nullable()->comment("Reference meme templates data");
             $table->integer('user_id')->nullable();
             $table->text('body')->nullable();
             $table->text('image')->nullable();

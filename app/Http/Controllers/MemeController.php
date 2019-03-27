@@ -15,7 +15,7 @@ class MemeController extends Controller
 		$watermarkImage= 'images/logo.png';
 		$image = addWatermarkToImage($baseImage,$watermarkImage);
 		return $image->response();
-    }
+    }   
 
     public function create($slug=null)
     {
@@ -31,7 +31,7 @@ class MemeController extends Controller
         $height = Image::make($template->templateImage)->height();
         $templates = MemeTemplates::popular()->take(30)->get();
 
-    	return view('memes.create1',compact('templates','template','width','height'));
+    	return view('memes.create',compact('templates','template','width','height'));
     }
 
     public function store(Request $request)

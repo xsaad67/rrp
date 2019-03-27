@@ -25,8 +25,8 @@
 
     <div class="menu">
         <label class="btn btn-warning btn-file">
-                Upload your own image <input type="file" style="display: none;" id="imgInp">
-            </label>
+            Upload your own image <input type="file" style="display: none;" id="imgInp">
+        </label>
         <button id="load-img">Load</button>
         <button id="add-text">Text</button>
         <button id ="change-canvas">Change</button>
@@ -53,7 +53,11 @@
     console.log(mainImage);
 
 
+function readImageUrl(){
+    $arr = new Array();
+    $arr = ['height'=>img.height]
 
+}
 
 (function($, fabric) {
 

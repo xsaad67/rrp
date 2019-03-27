@@ -9,7 +9,7 @@ trait Sluggable
 		static::creating(function ($model) {
 
 			$settings = $model->sluggable();
-			
+			if(is_null($model->slug))
 			$source = $settings["source"];
 			$model->slug = str_slug($model->$source);
 			$latestSlug =
@@ -22,7 +22,7 @@ trait Sluggable
                $number = intval(end($pieces));
 
                $model->slug .= '-' . ($number + 1);
-           }
+           	}
 
 		});
 

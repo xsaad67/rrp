@@ -3,10 +3,6 @@
 @section('css')
 
 <style>
-.sticky-offset {
-    top: 80px;
-}
-
 
 
 </style>
@@ -18,8 +14,8 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-8">
-
 			<div class="memes-card">
+
 				@foreach($posts as $post)
 					<div class="single-post mb-5">
 						<div class="row shadow bg-white pt-5 pb-5 mr-2 br-bb">
@@ -39,7 +35,7 @@
 												<i class="fa fa-arrow-up " aria-hidden="true"></i>
 											</a>
 										</div>
-										<div class="box">
+											<div class="box">
 											<a href="javascript:void(0)" id="down-{{$post->id}}" class="downvote" data-id="{{$post->id}}">
 												<i class="fa fa-arrow-down " aria-hidden="true"></i>
 											</a>
@@ -49,17 +45,24 @@
 							</div>
 						</div>
 					</div>
+					
 				@endforeach
+
+				
 			</div>
+
 
 			<div class="mt-5 d-flex justify-content-center">
 				{{$posts->links()}}
 			</div>
 
+
+
 		</div>
 
 		<div class="col-lg-4" id="sticky-sidebar">
 			
+
 			<div class="shadow p-3 mb-5 bg-white rounded mt-2">
 
 				<h3 class="text-center mb-4">Popular Meme Templates</h3>
@@ -81,13 +84,9 @@
 
 				<div class="text-center">
 					<a class=" btn btn-warning btn-lg">All templates</a>
-				</div>				
+				</div>
+				
 			</div>
-
-			<div class="shadow mt-5 bg-white rounded sticky-top sticky-offset">
-				<img src="/images/custom/advertis-3.jpg" class="img-fluid" style="width:100%;">
-			</div>
-
 		</div>
 	</div>
 </div>

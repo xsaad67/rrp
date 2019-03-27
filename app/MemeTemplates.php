@@ -10,7 +10,7 @@ class MemeTemplates extends Model
 {
 	use Sluggable;
 
-	protected $appends = ['templateImage'];
+	// protected $appends = ['templateImage'];
 	
 	public function sluggable() {
 		return ['source' => 'title'];
@@ -44,9 +44,8 @@ class MemeTemplates extends Model
 	public function memes(){
 		return $this->hasMany(Post::class,"template_id");
 	}
-	
-	public static function sortTemplatesWithMemes($limit=5){
-		return static::has("memes")->withCount('memes')->orderBy('memes_count','desc')->take($limit)->get();
+
+	public function scopeTemplateWithMemes($query,$limit=5){
+		return $query->has("memes")->withCount("memes")->orderBy('memes_count','desc')->take($limit);
 	}
-	
 }

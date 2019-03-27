@@ -9,6 +9,7 @@ class ProfileController extends Controller
 {
     
     public function show($slug){
+
     	$user = User::where('slug',$slug)->firstOrFail();
     	$posts = $user->publishedPost()->paginate(5);
     	return view('users.show',compact('posts'));

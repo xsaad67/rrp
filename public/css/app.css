@@ -6068,7 +6068,7 @@ button.close {
     position: absolute;
     content: "";
     border-color: transparent;
-    border-style: solid
+    border-style: solid;
 }
 
 .bs-tooltip-auto[x-placement^=top],
@@ -9792,5 +9792,4 @@ a.text-dark:hover {
 border-top-left-radius: 25px;
 border-bottom-right-radius: 25px;
 border-bottom: 8px solid #cc30c7;
-
 }

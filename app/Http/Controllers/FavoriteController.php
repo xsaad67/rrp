@@ -31,15 +31,15 @@ class FavoriteController extends Controller
 	 */
     public function upvote(Request $request)
     {	
-    		$post = Post::find($request->id);
+		$post = Post::find($request->id);
 
-    		if($this->user->hasUpvoted($post)){
-    			$this->user->cancelVote($post);
-    			return response()->json(['success'=>'true','class' => 'upvote']);
-    		}
+		if($this->user->hasUpvoted($post)){
+			$this->user->cancelVote($post);
+			return response()->json(['success'=>'true','class' => 'upvote']);
+		}
 
-    		$this->user->upvote($post);
-    		return response()->json(['success'=>'true','class'=>'upvoted']);
+		$this->user->upvote($post);
+		return response()->json(['success'=>'true','class'=>'upvoted']);
     
     }
 

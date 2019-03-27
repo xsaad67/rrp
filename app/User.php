@@ -31,7 +31,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function sluggable() {
+    public function sluggable(){
         return ['source' => 'name'];
     }
 
@@ -51,13 +51,7 @@ class User extends Authenticatable
     {
         return $this->isAdmin ==1 ? true : false;
     }
-
-
-    public function isNotAdmin(){
-        return $this->isAdmin == 0 ? true : false;
-    }
-
-
+    
     public function getDpAttribute(){
         return is_null($this->avatar) ? \Avatar::create($this->name)->setBorder(0,'adf'): asset('images/avatars/'.$this->avatar);
     }

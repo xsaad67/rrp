@@ -69,8 +69,6 @@
 			    Upload your own image <input type="file" style="display: none;" id="imgInp">
 			</label>
 			<img src="{{$template->templateImage}}" id="current-meme" class="img-fluid">
-			{{-- <div class="design" id="image" data-design="http://meme.localhost/imagecache/small/temp_7711FE96-38E8-30E6-591C-0D19E472D0F1_Ermahgerd-Beyonce.jpg"> --}}
-			{{-- <div class="draggableHelper" style="display:inline-block; z-index:99999;"><img class="dragImage" src="http://meme.localhost/imagecache/small/temp_7711FE96-38E8-30E6-591C-0D19E472D0F1_Ermahgerd-Beyonce.jpg" /></div> --}}
 
 			<div class="hidden" id="ex">{{ $template->id }}</div>
 			<div class="col-8">

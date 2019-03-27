@@ -23,6 +23,8 @@ class CreatePostsTable extends Migration
             $table->integer('user_id')->nullable();
             $table->text('body')->nullable();
             $table->text('image')->nullable();
+            $table->boolean('isMeme')->default(0);
+            $table->boolean('isGif')->default(0);
             $table->boolean('isPublished')->default(1)->comment("0 for not published, 1 for published");
             $table->string('source')->nullable();
             $table->string('website')->nullable();

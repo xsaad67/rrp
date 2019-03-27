@@ -75,9 +75,10 @@ class MemeTemplatesController extends Controller
      * @param  \App\MemeTemplates  $memeTemplates
      * @return \Illuminate\Http\Response
      */
-    public function show(MemeTemplates $memeTemplates)
+    public function show($id)
     {
-        //
+        $templates = MemeTemplates::templateWithMemes(5)->get();
+        return dd($templates);
     }
 
     /**

@@ -9,11 +9,16 @@
 <div class="row">
 	<div class="col-lg-4">
 		
-	{!! '<img src="'.asset(' asset("images/my2.png")').'">' !!}
+
 
 	</div>
 </div>
 
+@section('contentManage')
+	<div class="content">
+		
+	</div>
+@endsection
 
 @endsection
 

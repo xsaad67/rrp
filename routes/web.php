@@ -11,7 +11,7 @@
 |
 */
 
-Route::get("/","PostController@index");
+Route::get("/","PageController@index");
 Route::get("/ar",'CrawlController@index');
 Auth::routes();
 

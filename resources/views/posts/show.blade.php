@@ -76,7 +76,7 @@ margin-bottom:25px;
 	                    </form>
 
 	                @else
-	                	<a href="/login">login to comment and reply</a>
+	                	<a href="/login">Login to comment and reply</a>
                     @endauth
 				
 				

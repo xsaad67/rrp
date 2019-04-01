@@ -16,10 +16,19 @@ class PostController extends Controller
      */
     public function index()
     {   
+
+      
+
+
         $memeTemplates = MemeTemplates::sortTemplatesWithMemes(10);
         $posts = Post::published()->paginate(5);
         return view("posts.index",compact("posts","memeTemplates"));
     }
+
+    /**
+    * Display adding list
+    *  
+    */
 
     /**
      * Show the form for creating a new resource.
@@ -41,6 +50,7 @@ class PostController extends Controller
     {
         //
     }
+
 
     /**
      * Display the specified resource.

@@ -43,3 +43,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users/{slug}','ProfileController@show');
 
 Route::get('/meme/upload','PostController@create');
+Route::post('post','PostController@store');

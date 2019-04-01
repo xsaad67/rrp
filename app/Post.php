@@ -55,5 +55,63 @@ class Post extends Model
     	return $query->where("isPublished",0);
     }
 
+    public function guestUpVoters(){
+      return $this->morphMany(Followable::class, 'followable')->where('relation','upvote')->where('isGuest',1);
+    }
+
+    public function guestDownVoters(){
+      return $this->morphMany(Followable::class, 'followable')->where('relation','downvote')->where('isGuest',1);
+    }
+
+
+    //Functions for guest voting
+
+    public function cancelVote($ip){
+    	return \App\Followable::where('ip',$ip)->where('followable_type',get_class($this))->delete();
+    }
+
+    public function guestHasVoted($ip,$vote="upvote"){
+    	return \App\Followable::where('ip',$ip)->where('followable_type',get_class($this))->first();
+    }
+
+    public function guestHasUpvoted($ip){
+
+      return \App\Followable::where("ip",$ip)
+                            ->where("followable_id",$this->id)
+                            ->where('followable_type',get_class($this))
+                            ->where("relation","upvote")->first();
+    }
   	
+  	public function guestHasDownVoted($ip){
+
+      return \App\Followable::where("ip",$ip)
+                            ->where("followable_id",$this->id)
+                            ->where('followable_type',get_class($this))
+                            ->where("relation","upvote")->first();
+  	}
+
+  	public function guestDownVote($ip){
+
+      $vote = new \App\Followable(); 
+      $vote->ip= $ip;
+      $vote->relation="downvote";
+      $vote->isGuest =1;
+      $vote->followable_id = $this->id;
+      $vote->followable_type = get_class($this);
+      return $vote->save();
+
+  	}
+
+  	public function guestUpvote($ip){
+
+    	$vote = new \App\Followable(); 
+      $vote->ip= $ip;
+      $vote->relation="upvote";
+      $vote->isGuest =1;
+      $vote->followable_id = $this->id;
+      $vote->followable_type = get_class($this);
+      return $vote->save();
+
+    }
+
 }

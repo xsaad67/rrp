@@ -20,15 +20,14 @@ class FavoriteController extends Controller
 		$this->middleware(function ($request, $next) {
             $this->user = auth()->user();
             return $next($request);
-        });
-		
+        });		
 	}
 
 	/**
 	 * 
 	 * @param  Request $request [All the request parameters]
 	 * @return [json]           [json containing upvote?* and total count of votes]
-	 */
+	*/
     public function upvote(Request $request)
     {	
 		$post = Post::find($request->id);

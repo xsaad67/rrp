@@ -37,7 +37,5 @@ class CommentController extends Controller
         }else{
             return redirect()->back();
         }
-
-       
     }
 }

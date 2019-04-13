@@ -19,7 +19,7 @@ class PageController extends Controller
     public function index()
     {   
 
-        return Post::with('guestUpVoters')->get();
+        return Post::with('supvoters','upvoters')->get();
         $ip = "127.0.0.1";
         
         $post = Post::find(3);

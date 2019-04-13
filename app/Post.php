@@ -59,6 +59,9 @@ class Post extends Model
       return $this->morphMany(Followable::class, 'followable')->where('relation','upvote')->where('isGuest',1);
     }
 
+    public function supvoters(){
+      return $this->morphMany(Followable::class,'followable')->where('relation','upvote');
+    }
     public function guestDownVoters(){
       return $this->morphMany(Followable::class, 'followable')->where('relation','downvote')->where('isGuest',1);
     }

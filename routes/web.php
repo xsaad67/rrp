@@ -12,6 +12,9 @@
 */
 
 Route::get("/","PageController@index");
+// Route::get('/',function(){
+// 	return view('layouts.app');
+// });
 Route::get("/ar",'CrawlController@index');
 Auth::routes();
 

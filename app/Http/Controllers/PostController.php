@@ -16,9 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {   
-
-      
-
+       
 
         $memeTemplates = MemeTemplates::sortTemplatesWithMemes(10);
         $posts = Post::published()->paginate(5);

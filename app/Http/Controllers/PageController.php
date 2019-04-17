@@ -19,22 +19,21 @@ class PageController extends Controller
     public function index()
     {   
 
-        return Post::with('supvoters','upvoters')->get();
-        $ip = "127.0.0.1";
+        // return Post::with('supvoters','upvoters')->get();
+        // $ip = "127.0.0.1";
         
-        $post = Post::find(3);
-        $user = \App\User::find(2); 
+        // $post = Post::find(3);
+        // $user = \App\User::find(2); 
         
-        dd($post->guestUpvote($ip));
-        return $ip;
+        // dd($post->guestUpvote($ip));
+        // return $ip;
     
-        $isVote = $user->vote($post);
-        return $isVote;
+        // $isVote = $user->vote($post);
+        // return $isVote;
 
-
-        // $memeTemplates = MemeTemplates::templateWithMemes(5)->get();
-        // $posts = Post::with('vote')published()->paginate(10);
-        // return view("posts.index",compact("posts","memeTemplates"));
+        $memeTemplates = MemeTemplates::templateWithMemes(5)->get();
+        $posts = Post::published()->paginate(10);
+        return view("posts.index",compact("posts","memeTemplates"));
         
     }
 

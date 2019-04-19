@@ -45,7 +45,7 @@ class MemeTemplates extends Model
 		return $this->hasMany(Post::class,"template_id");
 	}
 
-	public function scopeTemplateWithMemes($query,$limit=5){
+	public function scopeTemplateWithMemes($query,$limit=10){
 		return $query->has("memes")->withCount("memes")->orderBy('memes_count','desc')->take($limit);
 	}
 }

@@ -31,9 +31,10 @@ class PageController extends Controller
         // $isVote = $user->vote($post);
         // return $isVote;
 
-        $memeTemplates = MemeTemplates::templateWithMemes(5)->get();
+        $memeTemplates = MemeTemplates::templateWithMemes(10)->get();
         $posts = Post::published()->paginate(10);
-        return view("posts.index",compact("posts","memeTemplates"));
+        // return $memeTemplates;
+        return view("pages.index",compact("posts","memeTemplates"));
         
     }
 

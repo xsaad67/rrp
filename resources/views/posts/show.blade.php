@@ -1,157 +1,74 @@
 @extends('layouts.app')
 
-@section('css')
-
-<style>
-.comment{
--webkit-box-shadow: -1px 2px 9px 0px rgba(0,0,0,0.75);
--moz-box-shadow: -1px 2px 9px 0px rgba(0,0,0,0.75);
-box-shadow: -1px 2px 9px 0px rgba(0,0,0,0.75);
-padding:25px;
-margin-bottom:25px;
-}
-
-.replyForm{
-	display:none;
-}
-</style>
-
-@endsection
-
 @section('content')
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8">
-			<div class="memes-card">
-				
-					<div class="single-post">
-						<div class="row">
-							<div class="col-lg-8">
-								<h1 class="text-center">{{$post->title}}</h1>
-								<img src="{{$post->media}}" class="img-fluid">
+	<div class="container">
+
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="card shadow-sm shadow--hover mb-2">
+		        	<a class="postTitle p-3" href="{{$post->link}}"><h2 class="">{{$post->title}}</h2></a>
+					<span class="px-3 posted mb-1">Posted By <a href="#">{{$post->user->name}}</a> {{$post->created_at->diffForHumans()}}</span>
+					<img alt="Image placeholder" src="{{$post->media}}" class="card-img-top">
+					<div class="social-share share-post text-center" style="display:none;">
+						<a href="http://www.facebook.com/sharer.php?s=100&amp;p[title]={{$post->title}}&amp;p[summary]={{$post->title}} {{$post->link}} via {{'@ '.env('APP_NAME')}}&amp;p[url]={{$post->link}}&amp;p[images[0]={{$post->media}}" onclick="window.open(this.href, 'facebookwindow','left=20,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;">
+							<i class="fab fa-facebook sc"></i>
+						</a> 
+		            	<a href="http://twitter.com/intent/tweet?text={{$post->title}} {{$post->link}} via {{'@ '.env('APP_NAME')}}" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;">
+		            		<i class="fab fa-twitter sc"></i>
+		            	</a> 
+		            	<a href="http://pinterest.com/pin/create/bookmarklet/?media={{$post->media}}&url={{$post->title}}&is_video=false&description={{$post->title}} {{$post->link}} via {{'@ '.env('APP_NAME')}}" onclick="window.open(this.href, 'pinterestwindow','left=20,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;">
+		            		<i class="fab fa-pinterest sc"></i>
+		            	</a> 
+		            	<a href="http://www.reddit.com/submit?url={{$post->link}}&title={{$post->title}}" onclick="window.open(this.href, 'redditwindow','left=20,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;">
+		            		<i class="fab fa-reddit sc"></i>
+		            	</a>  
+		            	<a href="http://www.mix.com/submit?url={{$post->link}}&title={{$post->title}}" onclick="window.open(this.href, 'stumbleuponwindow','left=20,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;">
+		            		<i class="fab fa-stumbleupon sc"></i>
+		            	</a> 
+		            	<a href="http://www.linkedin.com/shareArticle?url={{$post->link}}&title={{$post->title}}" onclick="window.open(this.href, 'linkedinwindow','left=20,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;">
+		            		<i class="fab fa-linkedin sc"></i>
+		            	</a> 
+		        	</div>
+		            
+		            <div class="card-footer">
+
+		            	<div class="d-flex justify-content-between">
+		            		<div>
+		            			<a href="javascript:void(0);" class="text-muted shareIcon"><i class="far fa-comments mr-2 fa-2x text-muted"></i></a>
+		            			<a href="javascript:void(0);" class="text-muted shareIcon"><i class="far fa-heart mr-2 fa-2x text-muted"></i></a>
+		            		</div>
+
+		            		<div class="d-flex justify-content-between">
+		                		<a href="javascript:void(0);" class="text-muted shareIcon"><i class="far fa-thumbs-up mr-4 fa-2x text-muted"></i></a>
+
+		                		{{-- <p class="text-muted">45</p> --}}
+		                		<a href="javascript:void(0);" class="text-muted shareIcon"><i class="far fa-thumbs-down ml-4 fa-2x text-muted"></i></a>
+		            		</div>
+		            		<div>
+		            			<a href="javascript:void(0);" class="text-muted shareIcon"><i class="far fa-share-alt-square mr-1 fa-2x text-muted"></i></a>
+		            			<a href="javascript:void(0);" class="text-muted shareIcon"><i class="far fa-exclamation-triangle mr-1 fa-2x text-muted"></i></a>
+		            		</div>
+		            	</div>                     
+		            </div>
+
+		            <div style="border-top: .0625rem solid rgba(0,0,0,.08);">
+
+						<div class="d-flex bd-highlight mb-3">
+						  	<div class="mr-auto p-2 bd-highlight ml-3">
+						  		<i class="far fa-tags mt-3 mr-1 text-muted"></i>
+								<a href="#" class="badge badge-md badge-pill badge-info">this is total shit slumdog</a>
+								<a href="#" class="badge badge-md badge-pill badge-info">this is total shit slumdog</a>
+								<a href="#" class="badge badge-md badge-pill badge-info">this is total shit slumdog</a>
 							</div>
-							<div class="col-lg-4">
-								<a href="{{$post->link}}">
-									<h2>{{$post->title}}</h2>
-								</a>
-								
-								<span>By</span>
-								<a href="{{$post->user->link}}">{{$post->user->name}}</a>
-
-								<div class="row">
-									<div class="col-lg-8">
-										<div class="box">
-											<a href="javascript:void(0)" id="up-{{$post->id}}" class="upvote" data-id="{{$post->id}}">
-												<i class="fa fa-arrow-up " aria-hidden="true"></i>
-											</a>
-										</div>
-											<div class="box">
-											<a href="javascript:void(0)" id="down-{{$post->id}}" class="downvote" data-id="{{$post->id}}">
-												<i class="fa fa-arrow-down " aria-hidden="true"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<hr>
-					 <h4>Comments</h4>
-					<div id="display-comments">
-                    	@include('partials._comment_replies', ['comments' => $post->comments, 'post_id' => $post->id])
-                    </div>
-                    <hr />
-
-                    @auth
-					<h4>Add comment</h4>
-	                    <form method="post" action="{{ route('comment.add') }}">
-	                        @csrf
-	                        <div class="form-group">
-	                            <textarea placeholder="Place Your Comment here" name="comment_body" id="comment_body" class="form-control"></textarea>
-	                            <input type="hidden" name="post_id" id="post_id" value="{{ $post->id }}" />
-	                        </div>
-	                        <div class="form-group">
-	                            <input type="submit" class="btn btn-warning" id="c-sub" value="Add Comment" />
-	                        </div>
-	                    </form>
-
-	                @else
-	                	<a href="/login">Login to comment and reply</a>
-                    @endauth
-				
-				
-			</div>
-
-		</div>
-
-		<div class="col-lg-4">
-			<div class="memes-card">
-
-			</div>
+						</div>         
+		            </div>
+		        </div>
+		    </div>
 		</div>
 	</div>
-</div>
 @endsection
 
 
 @section('js')
-<script>
-	$(function(){
 
-		$.ajaxSetup({
-		  headers: {
-		    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		  }
-		});
-
-		$("#c-sub").click(function(e){
-			e.preventDefault();
-			var id = $("#post_id").val();
-			var comment = $("#comment_body").val();
-			
-
-			$.ajax({
-				type: "POST",
-				url: "{{ route('comment.add') }}",
-				data:{ post_id:id,comment_body:comment },
-				dataType: "json",
-				success: function(response){
-					console.log(response.html);
-				 	$("#display-comments").append(response.html);
-				},
-			});
-		});
-
-		$("#display-comments").on("click",".show-reply",function(e){
-			e.preventDefault();
-			$(this).parent().find(".replyForm").first().show();
-			console.log($(this).parent().find(".replyForm").first().html());
-			// $(this).remove();
-		});
-
-		$("#display-comments").on("click",".r-sub",function(e){
-			e.preventDefault();
-
-			
-			var post_id = $("#post_id").val();
-			var parent_id = $(this).parent().find(".comment_id").val();
-			var comment_body = $(this).parent().parent().find(".comment_body").val();
-
-			$.ajax({
-				type: "POST",
-				url: "{{ route('reply.add') }}",
-				data:{ post_id:post_id,comment_body:comment_body,comment_id:parent_id },
-				dataType: "json",
-				
-				success: function(response){
-					$("#com-"+parent_id).append(response.html);
-					$("#form-"+parent_id).hide();
-				 	
-				},
-			});
-		
-		});
-
-	});
-</script>
 @endsection

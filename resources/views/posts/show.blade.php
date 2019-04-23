@@ -5,8 +5,17 @@
 
 		<div class="row">
 			<div class="col-lg-8">
+
+				@if(session("success"))
+					<div class="alert alert-inverse mt-2">{{ session("success") }}</div>
+				@endif
+
+
+
 				<div class="card shadow-sm shadow--hover mb-2">
+					
 		        	<a class="postTitle p-3" href="{{$post->link}}"><h2 class="">{{$post->title}}</h2></a>
+
 					<span class="px-3 posted mb-1">Posted By <a href="#">{{$post->user->name}}</a> {{$post->created_at->diffForHumans()}}</span>
 					<img alt="Image placeholder" src="{{$post->media}}" class="card-img-top">
 					<div class="social-share share-post text-center" style="display:none;">
@@ -27,7 +36,7 @@
 		            	</a> 
 		            	<a href="http://www.linkedin.com/shareArticle?url={{$post->link}}&title={{$post->title}}" onclick="window.open(this.href, 'linkedinwindow','left=20,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;">
 		            		<i class="fab fa-linkedin sc"></i>
-		            	</a> 
+		            	</a> 	
 		        	</div>
 		            
 		            <div class="card-footer">
@@ -63,6 +72,7 @@
 						</div>         
 		            </div>
 		        </div>
+
 		    </div>
 		</div>
 	</div>

@@ -59,10 +59,14 @@
 			<div class="card">
 				<div class="body">
 					<h2 class="text-center mt-4">Create Post</h2>
-					<form method="POST" action="" class="form" action="{{action('PostController@store')}}">
+					<form method="POST" class="form" action="{{ action('PostController@store') }}" enctype="multipart/form-data">
+						@csrf
 						
 						<div class="form-group">
 							<input class="form-control" name="title" placeholder="Title">
+							@if ($errors->has('title'))
+			                    <strong>{{ $errors->first('title') }}</strong>
+			                @endif
 						</div>
 
 						<div class="form-group">
@@ -70,10 +74,17 @@
 							  <label for="image-upload" id="image-label">Choose File</label>
 							  <input type="file" name="image" id="image-upload" />
 							</div>
+							@if ($errors->has('image'))
+			                    <strong>{{ $errors->first('image') }}</strong>
+			                @endif
 						</div>
 
+
 						<div class="form-group">
-							<input class="form-control" name="tags" placeholder="Enter to add tag" data-role="tagsinput">
+							<input type="text" class="form-control" name="tags" data-toggle="tags" placeholder="Enter at least 2 tags" />
+							@if ($errors->has('tags'))
+			                    <strong>{{ $errors->first('tags') }}</strong>
+			                @endif
 						</div>
 						
 						<div class="text-center">
@@ -81,7 +92,6 @@
 								Upload Post
 							</button>
 						</div>
-
 					</form>
 				</div>
 			</div>
@@ -91,10 +101,11 @@
 	
 @endsection
 
-@section('js')
 
-<script type="text/javascript" src="{{asset('js/bt-tagsinput.js')}}"></script>
+@section('plugins')
+
 <script src="{{ asset('js/preview.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
 <script>
 	
 $(function(){

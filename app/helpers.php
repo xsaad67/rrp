@@ -21,6 +21,9 @@ function newGuid() {
     return $guidText;
 }
 
+function postImagePath($fileName){
+    return asset("/images/memes/".$fileName);
+}
 
 function addWatermarkToImage($baseImage,$watermarkImage)
 {

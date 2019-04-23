@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFlagsTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateFlagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('flags', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('name');
-            $table->boolean('isActive')->default(0);
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateFlagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('flags');
+        Schema::dropIfExists('tags');
     }
 }

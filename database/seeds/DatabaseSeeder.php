@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(MemeTemplatesTableSeeder::class);
      
+        $this->call(PostsTableSeeder::class);
     }
 }

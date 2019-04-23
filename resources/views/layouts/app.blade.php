@@ -33,8 +33,6 @@
 <body>
 
     <header id="header-main">
-        
-      
 
         <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark" id="navbar-main">
             <div class="container">
@@ -71,16 +69,7 @@
                                 </ul>
                                 <div class="dropdown-menu-links rounded-bottom delimiter-top p-4">
                                     <div class="row">
-                                        {{-- @php 
-                                            $featuredTags = \App\Tag::templateTags()->inRandomOrder()->take(60)->get();
-                                        @endphp
-                                        @foreach($featuredTags->chunk(($featuredTags->count()/4)) as $chunk)
-                                            @foreach($chunk as $tag)
-                                            <div class="col-sm-3">
-                                                <a href="{{$tag->link}}" class="dropdown-item">{{$tag->name}}</a>
-                                            </div>
-                                            @endforeach
-                                        @endforeach --}}
+                                       
                                     </div>
                                 </div>
                                 <div class="delimiter-top py-3 px-4">

@@ -16,7 +16,6 @@ class PostController extends Controller
      */
     public function index()
     {   
-       
         $memeTemplates = MemeTemplates::sortTemplatesWithMemes(10);
         $posts = Post::published()->paginate(5);
         return view("posts.index",compact("posts","memeTemplates"));
@@ -45,7 +44,36 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+       $request->validate([
+                        'title'=>'required|bail|max:150',
+                        'image'=>'required|max:50000|image',
+                        'tags'=>'required',
+       ]);
+
+       $post = new Post();
+       $fileName = newGuid();
+
+        if ($request->hasFile('image')){
+
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); // you can also use file name
+            $fileName = $fileName.'.'.$extension;
+            $fileName = postImagePath($fileName);
+            // $path = public_path("/images/memes"); //If in future i need to change the discord.
+            $uplaod = $file->move($path,$fileName);
+
+        }
+
+       $post->title = $request->title;
+       $post->hasTitle =1;
+       $post->isPublished =0;
+       $post->user_id = auth()->id();
+       $post->image = $fileName;
+       $post->save();
+
+       return redirect("posts/".$post->slug)->withSuccess("Your post has created successfully. It is now waiting for appproval");
+
     }
 
 
@@ -57,19 +85,25 @@ class PostController extends Controller
      */
     public function show($slug)
     {
+
         $post = Post::with("comments")->where("slug",$slug)->firstOrFail(); 
+        // Post shown for the user 
+        if($post->isPublished==0 && auth()->id() != $post->user_id && $post->isGuest==0){
+            abort(404);
+        }
+
         return view('posts.show',compact('post'));
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for editing the specified resource.
+    *
+    * @param  \App\Post  $post
+    * @return \Illuminate\Http\Response
+    */
     public function edit(Post $post)
     {
-        //
+        return $post;
     }
 
     /**
@@ -81,7 +115,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        return $post;
     }
 
     /**

@@ -12,12 +12,17 @@
 */
 
 Route::get("/","PageController@index");
-// Route::get('/',function(){
-// 	return view('layouts.app');
-// });
-Route::get("/ar",'CrawlController@index');
 Auth::routes();
 
+
+Route::get("/ar",'CrawlController@index');
+
+Route::get('/posts/create','PostController@create');
+Route::get('/posts/{post}/edit','PostController@edit');
+Route::post('posts/{id}/update','PostController@update');
+Route::post('posts/{id}/delete','PostController@destroy');
+
+Route::post('/posts','PostController@store');
 Route::get('/posts/{slug}','PostController@show');
 Route::post('/comment/store', 'CommentController@store')->name('comment.add');
 Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');

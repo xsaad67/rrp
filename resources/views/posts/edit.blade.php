@@ -58,31 +58,37 @@
 		<div class="col-lg-9">
 			<div class="card">
 				<div class="body">
-					<h2 class="text-center mt-4">Create Post</h2>
-					<form method="POST" class="form" action="{{ action('PostController@store') }}" enctype="multipart/form-data">
+					<h2 class="text-center mt-4">Edit Post</h2>
+
+					<form method="POST" class="form" action="{{ action('PostController@update',$post->id) }}" enctype="multipart/form-data">
 						@csrf
 						
 						<div class="form-group">
-							<input class="form-control" name="title" placeholder="Title" value="{{ old('title') }}">
+
+							<input class="form-control" name="title" placeholder="Title" value="{{ old('title',($post->hasTitle==0 ? "" : $post->title )) }}">
 
 							@if ($errors->has('title'))
 			                    <strong>{{ $errors->first('title') }}</strong>
 			                @endif
+
 						</div>
 
 						<div class="form-group">
-							<div id="image-preview">
+
+							<div id="image-preview" style="background-image:url('{{$post->media}}')">
 							  <label for="image-upload" id="image-label">Choose File</label>
 							  <input type="file" name="image" id="image-upload" />
 							</div>
+
 							@if ($errors->has('image'))
 			                    <strong>{{ $errors->first('image') }}</strong>
 			                @endif
+
 						</div>
 
 
 						<div class="form-group">
-							<input type="text" class="form-control" name="tags" data-toggle="tags" placeholder="Enter at least 1 tag" value="{{ old('tags') }}" />
+							<input type="text" class="form-control" name="tags" data-toggle="tags" placeholder="Enter at least 1 tag" value="{{ old('tags',$keywords) }}" />
 							
 							@if ($errors->has('tags'))
 			                    <strong>{{ $errors->first('tags') }}</strong>
@@ -95,10 +101,12 @@
 							</button>
 						</div>
 					</form>
+
 				</div>
 			</div>
 		</div>
 	</div>
+
 </div>
 	
 @endsection
@@ -111,6 +119,7 @@
 <script>
 	
 $(function(){
+
 	$.uploadPreview({
 	    input_field: "#image-upload",   // Default: .image-upload
 	    preview_box: "#image-preview",  // Default: .image-preview
@@ -119,6 +128,7 @@ $(function(){
 	    label_selected: "Change File",  // Default: Change File
 	    no_label: false                 // Default: false
   	});
+  	
 });
 
 </script>

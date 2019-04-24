@@ -77,6 +77,11 @@ class CrawlController extends Controller
      */
     public function create()
     {
+        /* Used to create searches of flair.
+        * change the search to search.json in url 
+        * 
+        * $searchJsonUrl = "https://www.reddit.com/r/MemeTemplatesOfficial/search.json?q=flair_name%3A%22Template%22&sort=new";
+        */
         $url = "https://www.reddit.com/r/memes/top.json?limit=100";
         session()->put("reddit",json_decode(file_get_contents($url)));
        

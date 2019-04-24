@@ -10,6 +10,20 @@ function validUrlImage($file) {
    
 }
 
+function savingTags($tags,$id){
+    $tags = explode(",",$tags);
+    foreach($tags as $tag){
+        $tag =  \App\Tag::firstOrCreate([ 'name'=>strtolower($tag) ]);
+        if($tag->id){
+            $taggable = new \App\Taggable();
+            $taggable->tag_id = $tag->id;
+            $taggable->taggable_id = $id;
+            $taggable->taggable_type = "App\Post";
+            $taggable->save();
+        }
+    }
+}
+
 function newGuid() { 
     $s = strtoupper(md5(uniqid(rand(),true))); 
     $guidText = 

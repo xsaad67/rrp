@@ -19,7 +19,7 @@ Route::get("/ar",'CrawlController@index');
 
 Route::get('/posts/create','PostController@create');
 Route::get('/posts/{post}/edit','PostController@edit');
-Route::post('posts/{id}/update','PostController@update');
+Route::post('posts/{post}/update','PostController@update');
 Route::post('posts/{id}/delete','PostController@destroy');
 
 Route::post('/posts','PostController@store');

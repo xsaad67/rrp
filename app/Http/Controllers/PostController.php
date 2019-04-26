@@ -30,7 +30,7 @@ class PostController extends Controller
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
-     */
+    */
     public function create()
     {
         return view('posts.create');
@@ -44,7 +44,6 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'title'=>'required|bail|max:150',
             'image'=>'required|max:50000|image',
@@ -78,7 +77,7 @@ class PostController extends Controller
         }
 
     }
-
+ 
 
     /**
      * Display the specified resource.
@@ -107,6 +106,8 @@ class PostController extends Controller
     */
     public function edit(Post $post)
     {
+// dd(app_path("Post.php"));
+        dd(checkowsap());
         $keywords = $post->tags->implode('name',',');
         return view( 'posts.edit',compact("post","keywords") );
     }
@@ -120,16 +121,32 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+
+        $tag =  \App\Tag::firstOrCreate([ 'name'=>strtolower("<a href='adf'>adjf</a>") ]);
+        return $tag;
         $request->validate([
             'title'=>'required|bail|max:150',
             'image'=>'nullable|max:50000|image',
             'tags'=>'required',
         ]);
 
-        return $request->all(); 
-        // if($request->hasFile('image')){
+        $post->title = $request->title;
+        $post->isPublished = is_null($request->published) ? 0 : 1;
 
-        // }
+        if ($request->hasFile('image')){
+            $fileName = newGuid();
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); // you can also use file name
+            $fileName = $fileName.'.'.$extension;
+            $path = public_path("/images/memes"); 
+            $uplaod = $file->move($path,$fileName);
+            $post->image = $fileName;
+        }       
+
+        savingTags($request->tags,$post->id);
+        $post->title = $request->title;
+
+      
     }
 
     /**

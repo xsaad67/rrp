@@ -4,47 +4,47 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/bt-tag.css') }}">
 <style type="text/css">
 
-
-
 	.form{
 		padding:25px;
 	}
-	#image-preview {
-	  width: 100%;
-	  min-height: 400px;
-	  height:auto;
-	  position: relative;
-	  overflow: hidden;
-	  background-color: #ffffff;
-	  color: #ecf0f1;
-	  border: 2px dashed #ccc;
+
+	.uploader {
+		position:relative; 
+		overflow:hidden; 
+		width:100%; 
+		height:350px; 
+		background:#f3f3f3; 
+		border:2px dashed #e8e8e8;
 	}
-	#image-preview input {
-	  line-height: 200px;
-	  font-size: 200px;
-	  position: absolute;
-	  opacity: 0;
-	  z-index: 10;
+
+	#filePhoto{
+	    position:absolute;
+	    width:100%;
+	    height:400px;
+	    top:-50px;
+	    left:0;
+	    z-index:2;
+	    opacity:0;
+	    cursor:pointer;
+	    display:block;
+	    margin:auto;
 	}
-	#image-preview label {
-	  position: absolute;
-	  z-index: 5;
-	  opacity: 0.8;
-	  cursor: pointer;
-	  background-color: #bdc3c7;
-	  width: 200px;
-	  height: 50px;
-	  font-size: 20px;
-	  line-height: 50px;
-	  text-transform: uppercase;
-	  top: 0;
-	  left: 0;
-	  right: 0;
-	  bottom: 0;
-	  margin: auto;
-	  text-align: center;
+
+	.uploader img{
+	    /*position:absolute;*/
+	    width:400px;
+	    height:352px;
+	    top:-1px;
+	    left:-1px;
+	    z-index:1;
+	    border:none;
+	    background-size:cover;
+	    background-position:center center;
+	    display:block;
+	    margin:auto;
+
 	}
-	
+
 
 </style>
 @endsection
@@ -75,9 +75,9 @@
 
 						<div class="form-group">
 
-							<div id="image-preview" style="background-image:url('{{$post->media}}')">
-							  <label for="image-upload" id="image-label">Choose File</label>
-							  <input type="file" name="image" id="image-upload" />
+ 							<div class="uploader" onclick="$('#filePhoto').click()">
+							    <img src="{{$post->media}}" />
+							    <input type="file" name="image"  id="filePhoto" />
 							</div>
 
 							@if ($errors->has('image'))
@@ -114,21 +114,21 @@
 
 @section('plugins')
 
-<script src="{{ asset('js/preview.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
 <script>
 	
 $(function(){
+	var imageLoader = document.getElementById('filePhoto');
+	 imageLoader.addEventListener('change', handleImage, false);
 
-	$.uploadPreview({
-	    input_field: "#image-upload",   // Default: .image-upload
-	    preview_box: "#image-preview",  // Default: .image-preview
-	    label_field: "#image-label",    // Default: .image-label
-	    label_default: "Choose File",   // Default: Choose File
-	    label_selected: "Change File",  // Default: Change File
-	    no_label: false                 // Default: false
-  	});
-  	
+	function handleImage(e) {
+	    var reader = new FileReader();
+	    reader.onload = function (event) {
+	        $('.uploader img').attr('src',event.target.result).show();
+	    }
+	    reader.readAsDataURL(e.target.files[0]);
+	}
+
 });
 
 </script>

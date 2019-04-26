@@ -61,8 +61,7 @@ class CrawlController extends Controller
             Image::make($row['avatar'])->save(public_path($folderName.$fileName));
             $user->avatar = $fileName;
             $user->save();
-         }
-            
+        }
         
         return session()->get("users");
     
@@ -77,10 +76,12 @@ class CrawlController extends Controller
      */
     public function create()
     {
+        
         /* Used to create searches of flair.
         * change the search to search.json in url 
         * 
         * $searchJsonUrl = "https://www.reddit.com/r/MemeTemplatesOfficial/search.json?q=flair_name%3A%22Template%22&sort=new";
+        * 
         */
         $url = "https://www.reddit.com/r/memes/top.json?limit=100";
         session()->put("reddit",json_decode(file_get_contents($url)));

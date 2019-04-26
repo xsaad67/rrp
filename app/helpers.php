@@ -1,5 +1,5 @@
 <?php
-	
+
 function validUrlImage($file) {
 	try{
 		$size = getimagesize($file);
@@ -14,15 +14,18 @@ function savingTags($tags,$id){
     $tags = explode(",",$tags);
     foreach($tags as $tag){
         $tag =  \App\Tag::firstOrCreate([ 'name'=>strtolower($tag) ]);
-        if($tag->id){
-            $taggable = new \App\Taggable();
-            $taggable->tag_id = $tag->id;
-            $taggable->taggable_id = $id;
-            $taggable->taggable_type = "App\Post";
-            $taggable->save();
-        }
+        if($tag->id){ $taggable = \App\Taggable::firstOrCreate(['tag_id'=>$tag->id,'taggable_id'=>$id,'taggable_type'=>"App\Post"]); }
     }
 }
+
+// function updatingTags($tags,$id)
+// {
+//     $tags = explode(",",$tags);
+//     foreach ($tags as $tag) {
+//             $tag = 
+//     }
+// }
+
 
 function newGuid() { 
     $s = strtoupper(md5(uniqid(rand(),true))); 
@@ -96,5 +99,8 @@ function getInitials($string)
     return strtoupper($result);
 }
 
+function checkowsap(){
+  return "yes";
+}
 
 ?>

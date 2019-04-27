@@ -1,5 +1,5 @@
 <?php
-
+// require_once(__DIR__."/Helpers/sanitizeOWSAP.php");
 function validUrlImage($file) {
 	try{
 		$size = getimagesize($file);
@@ -18,14 +18,6 @@ function savingTags($tags,$id){
     }
 }
 
-// function updatingTags($tags,$id)
-// {
-//     $tags = explode(",",$tags);
-//     foreach ($tags as $tag) {
-//             $tag = 
-//     }
-// }
-
 
 function newGuid() { 
     $s = strtoupper(md5(uniqid(rand(),true))); 
@@ -37,6 +29,8 @@ function newGuid() {
         substr($s,20); 
     return $guidText;
 }
+
+
 
 function postImagePath($fileName){
     return asset("/images/memes/".$fileName);
@@ -101,6 +95,11 @@ function getInitials($string)
 
 function checkowsap(){
   return "yes";
+}
+
+function returnAppPath()
+{
+    return app_path();
 }
 
 ?>

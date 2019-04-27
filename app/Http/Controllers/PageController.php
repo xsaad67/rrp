@@ -19,6 +19,8 @@ class PageController extends Controller
     public function index()
     {   
 
+
+        dd(returnAppPath());
         // return Post::with('supvoters','upvoters')->get();
         // $ip = "127.0.0.1";
         

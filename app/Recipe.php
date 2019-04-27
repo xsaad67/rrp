@@ -4,6 +4,8 @@ namespace App;
 
 class Recipe
 {
+
+
     /**
      * Get a Website favicon image.
      *
@@ -96,7 +98,7 @@ class Recipe
 
     public static function createLinkTags($link, $text = '', $attributes=[])
     {
-        $destroyTag self::destroyLinkTag($link);
+        $destroyTag = self::destroyLinkTag($link);
 
     }
     /**

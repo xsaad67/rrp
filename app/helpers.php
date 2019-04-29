@@ -30,8 +30,7 @@ function newGuid() {
     return $guidText;
 }
 
-
-
+ 
 function postImagePath($fileName){
     return asset("/images/memes/".$fileName);
 }

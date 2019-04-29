@@ -11,7 +11,7 @@
 |
 */
 
-Route::get("/","PageController@index");
+Route::get("/","CrawlController@thisperson");
 Auth::routes();
 
 

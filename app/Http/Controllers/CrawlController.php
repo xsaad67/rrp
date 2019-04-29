@@ -29,6 +29,37 @@ class CrawlController extends Controller
        return $link;
     }
 
+
+    public function thisperson()
+    {
+        $fileName = newGuid().".png";
+        $url="https://thispersondoesnotexist.com/image";
+        Image::make($url)->save(public_path("images/thisperson/".$fileName));
+        return $url;
+    }
+
+    public function azAuthors(){
+
+        $url="https://www.azquotes.com/quotes/authors/e/";
+
+        $crawler = Goutte::request('GET', $url);
+
+        $crawler->filter(".authors-page-a .table tbody > tr")->each(function($node){
+
+            $link = $node->filter("td:first-child > a")->attr("href");
+            $name = $node->filter("td:first-child > a")->text();
+            $profession = trim($node->filter("td:nth-child(2)")->text());
+            $dob = trim($node->filter("td:last-child")->text());
+
+            dump($link);
+            dump($name);
+            dump($profession);
+            dump($dob);
+           
+        });
+
+    }
+
     public function randomUsers(){
 
         //Get User Info first and put them into session array
@@ -39,10 +70,10 @@ class CrawlController extends Controller
         foreach($json->results as $key=>$row){
 
             $array[] = [
-                        "name" => $row->name->first . " " .$row->name->last,
-                        "email" => $row->email,
-                        "avatar" => $row->picture->large
-                    ];
+                "name" => $row->name->first . " " .$row->name->last,
+                "email" => $row->email,
+                "avatar" => $row->picture->large
+            ];
         }
 
         // Putting data into session array
@@ -83,6 +114,7 @@ class CrawlController extends Controller
         * $searchJsonUrl = "https://www.reddit.com/r/MemeTemplatesOfficial/search.json?q=flair_name%3A%22Template%22&sort=new";
         * 
         */
+       
         $url = "https://www.reddit.com/r/memes/top.json?limit=100";
         session()->put("reddit",json_decode(file_get_contents($url)));
        

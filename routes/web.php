@@ -11,7 +11,7 @@
 |
 */
 
-Route::get("/","CrawlController@thisperson");
+Route::get("/","PageController@index");
 Auth::routes();
 
 
@@ -24,6 +24,7 @@ Route::post('posts/{id}/delete','PostController@destroy');
 
 Route::post('/posts','PostController@store');
 Route::get('/posts/{slug}','PostController@show');
+
 Route::post('/comment/store', 'CommentController@store')->name('comment.add');
 Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
 

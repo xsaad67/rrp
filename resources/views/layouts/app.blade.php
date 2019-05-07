@@ -36,56 +36,19 @@
 
         <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-transparent navbar-dark bg-dark" id="navbar-main">
             <div class="container">
-                <a class="navbar-brand mr-lg-5" href="../index.html">
-                    <img alt="Image placeholder" src="/assets/img/brand/white.png" style="height: 50px;">
+                <a class="navbar-brand mr-5 mb-4 ml-5 ml-sm-0 mb-sm-0" href="../index.html">
+                    <img alt="Image placeholder" src="/images/custom/logo.png" style="height: 50px;">
                 </a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <input type="text" class="form-control" placeholder="Search ">
+
+                <button class="navbar-toggler text-center" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+
+
                 <div class="collapse navbar-collapse" id="navbar-main-collapse">
-                    <ul class="navbar-nav align-items-lg-center">
-                        <li class="nav-item ">
-                            <a class="nav-link" href="../index.html">Overview</a>
-                        </li>
-                        <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
-                            <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                            <div class="dropdown-menu dropdown-menu-xl dropdown-menu-arrow p-0">
-                                <ul class="list-group list-group-flush">
-                                    <li>
-                                        <a href="sections.html" class="list-group-item list-group-item-action" role="button">
-                                            <div class="media d-flex align-items-center">
-                                                <figure style="width: 50px;">
-                                                    <img alt="Explore Topics" src="/assets/img/icons/icons8.png" class="svg-inject img-fluid" style="height: 50px;">
-                                                </figure>
-                                                <div class="media-body ml-3">
-                                                    <h6 class="mb-1">Explore all topics</h6>
-                                                    <p class="mb-0">All curated topics for your inspiration</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="dropdown-menu-links rounded-bottom delimiter-top p-4">
-                                    <div class="row">
-                                       
-                                    </div>
-                                </div>
-                                <div class="delimiter-top py-3 px-4">
-                                    <span class="badge badge-soft-success">Yaass!</span>
-                                    <p class="mt-2 mb-0">
-                                        {{ env('APP_NAME') }} is your daily inspiration to achieve goals
-                                    </p>
-                                </div>
-                            </div>
-
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../docs/alerts.html" role="button">Components</a>
-                        </li>
-                    </ul>
-
                     <ul class="navbar-nav align-items-lg-center ml-lg-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="../docs/introduction.html" target="_blank">Docs</a>
@@ -101,8 +64,8 @@
                             </a>
                         </li>
                     </ul>
-
                 </div>
+
             </div>
         </nav>
          

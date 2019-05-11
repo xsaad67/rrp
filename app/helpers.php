@@ -1,5 +1,5 @@
 <?php
-// require_once(__DIR__."/Helpers/sanitizeOWSAP.php");
+
 function validUrlImage($file) {
 	try{
 		$size = getimagesize($file);
@@ -17,6 +17,7 @@ function savingTags($tags,$id){
         if($tag->id){ $taggable = \App\Taggable::firstOrCreate(['tag_id'=>$tag->id,'taggable_id'=>$id,'taggable_type'=>"App\Post"]); }
     }
 }
+
 
 
 function newGuid() { 
@@ -85,20 +86,12 @@ function setEnvironmentValue(array $values)
 
 function getInitials($string)
 {
-
     $expr = '/(?<=\s|^)[a-z]/i';
     preg_match_all($expr, $string, $matches);
     $result = implode('', $matches[0]);
     return strtoupper($result);
 }
 
-function checkowsap(){
-  return "yes";
-}
 
-function returnAppPath()
-{
-    return app_path();
-}
 
 ?>

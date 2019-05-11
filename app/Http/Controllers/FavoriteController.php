@@ -31,14 +31,13 @@ class FavoriteController extends Controller
     public function upvote(Request $request)
     {	
 		$post = Post::find($request->id);
-
 		if($this->user->hasUpvoted($post)){
 			$this->user->cancelVote($post);
-			return response()->json(['success'=>'true','class' => 'upvote']);
+			return response()->json(['success'=>'true','class' => 'upvote','remove'=>'upvoted']);
 		}
 
 		$this->user->upvote($post);
-		return response()->json(['success'=>'true','class'=>'upvoted']);
+		return response()->json(['success'=>'true','class'=>'upvoted','remove'=>'upvote']);
     
     }
 
@@ -53,11 +52,11 @@ class FavoriteController extends Controller
 
 		if($this->user->hasDownvoted($post)){
 			$this->user->cancelVote($post);
-			return response()->json(['success'=>'true','class' => 'downvote']);
+			return response()->json(['success'=>'true','class' => 'downvote','remove'=>'downvoted']);
 		}
 
 		$this->user->downvote($post);
-		return response()->json(['success'=>'true','class'=>'downvoted']);
+		return response()->json(['success'=>'true','class'=>'downvoted','remove'=>'downvote']);
     }
 
 

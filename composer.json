@@ -14,7 +14,7 @@
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
         "orangehill/iseed": "^2.6",
-        "overtrue/laravel-follow": "^1.1",
+        "overtrue/laravel-follow": "1.1.10",
         "phpoffice/phpword": "^0.16.0",
         "qcod/laravel-gamify": "^1.0",
         "weidner/goutte": "^1.1"

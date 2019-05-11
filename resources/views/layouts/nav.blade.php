@@ -14,67 +14,8 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown dropdown-lg dropdown-carousel"><a class="nav-link dropdown-toggle" href="games.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Games</a>
-                                <div class="dropdown-menu">
-                                    <div class="container-fluid">
-                                        <div class="owl-carousel" ya-carousel="loop: true;nav: false;dots: false;margin: 10;autoplay: true;lazyLoad: true;items: 7;sm: 3;md: 4">
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/HYrcX8QIIAs/maxresdefault.jpg" alt="God of War">
-                                                <h5 class="dropdown-title">God of War</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/reAPorQHxNQ/maxresdefault.jpg" alt="Marvel's Spider-Man">
-                                                <h5 class="dropdown-title">Marvel's Spider-Man</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/MVTHYMkDvIs/maxresdefault.jpg" alt="Forza Horizon 4">
-                                                <h5 class="dropdown-title">Forza Horizon 4</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/v2YvZCjieR0/maxresdefault.jpg" alt="The Witcher 3: Wild Hunt">
-                                                <h5 class="dropdown-title">The Witcher 3: Wild Hunt</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/gJ56BJ-Ba9E/maxresdefault.jpg" alt="Anthem">
-                                                <h5 class="dropdown-title">Anthem</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/IzltYVmocOM/maxresdefault.jpg" alt="Prey">
-                                                <h5 class="dropdown-title">Prey</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/eh-_gm_61gM/maxresdefault.jpg" alt="Tom Clancy's The Division 2">
-                                                <h5 class="dropdown-title">Tom Clancy's The Division 2</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/8X2kIfS6fb8/maxresdefault.jpg" alt="Cyberpunk 2077">
-                                                <h5 class="dropdown-title">Cyberpunk 2077</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/OWBghlWBbhk/maxresdefault.jpg" alt="Dark Souls Remastered">
-                                                <h5 class="dropdown-title">Dark Souls Remastered</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/kUKrStkG-hE/maxresdefault.jpg" alt="Far Cry 5">
-                                                <h5 class="dropdown-title">Far Cry 5</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/FpB455nPFGk/maxresdefault.jpg" alt="Call of Duty: Black Ops 4">
-                                                <h5 class="dropdown-title">Call of Duty: Black Ops 4</h5></a>
-                                            <a class="dropdown-item" href="game-post.html"><img src="../../../img.youtube.com/vi/SG4hoev5uaI/maxresdefault.jpg" alt="Red Dead Redemption 2">
-                                                <h5 class="dropdown-title">Red Dead Redemption 2</h5></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="pages.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                                <div class="dropdown-menu">
-                                    <div class="dropdown"><a class="dropdown-item" href="games.html">Games</a>
-                                        <div class="dropdown-menu"><a class="dropdown-item" href="games.html">Games</a><a class="dropdown-item" href="game-post.html">Game Post</a></div>
-                                    </div>
-                                    <div class="dropdown"><a class="dropdown-item" href="#">Reviews</a>
-                                        <div class="dropdown-menu"><a class="dropdown-item" href="reviews.html">Reviews</a><a class="dropdown-item" href="review-post.html">Review Post</a></div>
-                                    </div>
-                                    <div class="dropdown"><a class="dropdown-item" href="forums.html">Forums</a>
-                                        <div class="dropdown-menu"><a class="dropdown-item" href="forums.html">Forums</a><a class="dropdown-item" href="forum-topic.html">Forum Topic</a><a class="dropdown-item" href="forum-post.html">Forum Post</a><a class="dropdown-item" href="forum-create.html">Forum Create</a></div>
-                                    </div><a class="dropdown-item" href="gallery.html">Gallery</a>
-                                    <div class="dropdown"><a class="dropdown-item" href="videos.html">Videos</a>
-                                        <div class="dropdown-menu"><a class="dropdown-item" href="videos.html">Videos</a><a class="dropdown-item" href="video-post.html">Video Post</a></div>
-                                    </div>
-                                    <div class="dropdown"><a class="dropdown-item" href="#">User</a>
-                                        <div class="dropdown-menu"><a class="dropdown-item" href="profile.html">Profile</a><a class="dropdown-item" href="profile-settings.html">Profile Settings</a>
-                                            <div class="dropdown"><a class="dropdown-item" href="login.html">Login</a>
-                                                <div class="dropdown-menu"><a class="dropdown-item" href="login.html">Login 1</a><a class="dropdown-item" href="login-2.html">Login 2</a><a class="dropdown-item" href="login-3.html">Login 3</a></div>
-                                            </div>
-                                            <div class="dropdown"><a class="dropdown-item" href="register.html">Register</a>
-                                                <div class="dropdown-menu"><a class="dropdown-item" href="register.html">Register 1</a><a class="dropdown-item" href="register-2.html">Register 2</a></div>
-                                            </div><a class="dropdown-item" href="lost-password.html">Lost Password</a></div>
-                                    </div><a class="dropdown-item" href="blank-page.html">Blank Page</a><a class="dropdown-item" href="404.html">Error 404</a>
-                                    <div class="dropdown"><a class="dropdown-item" href="#">Extra Pages</a>
-                                        <div class="dropdown-menu"><a class="dropdown-item" href="faq.html">Faq</a><a class="dropdown-item" href="contact.html">Contact</a><a class="dropdown-item" href="pricing.html">Pricing</a><a class="dropdown-item" href="search.html">Search Results</a><a class="dropdown-item" href="maintenance.html">Maintenance</a><a class="dropdown-item" href="terms-of-service.html">Terms of Service</a></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown dropdown-lg"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Components</a>
+                            <li class="nav-item dropdown dropdown-lg">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Components</a>
                                 <div class="dropdown-menu">
                                     <div class="dropdown-promo">
                                         <svg height="100%" xmlns="http://www.w3.org/2000/svg" stroke="null">
@@ -96,6 +37,12 @@
                                     </div>
                                 </div>
                             </li>
+
+
+
+                            
+
+
                             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
                                 <div class="dropdown-menu"><a class="dropdown-item" href="shop.html">Products</a><a class="dropdown-item" href="shop-sidebar.html">Products Sidebar</a><a class="dropdown-item" href="shop-product.html">Single Product</a>
                                     <div class="dropdown-divider"></div><a class="dropdown-item" href="shop-cart.html">Cart Overview</a><a class="dropdown-item" href="shop-checkout.html">Checkout</a></div>

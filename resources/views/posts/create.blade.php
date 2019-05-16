@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/bt-tag.css') }}">
@@ -44,12 +44,12 @@
 	    margin:auto;
 
 	}
+
 	
 </style>
 @endsection
 
 @section('content')
-
 
 <div class="container">
 	
@@ -81,7 +81,7 @@
 
 
 						<div class="form-group">
-							<input type="text" class="form-control" name="tags" data-toggle="tags" placeholder="Enter at least 1 tag" value="{{ old('tags') }}" />
+							<input type="text" class="form-control bootstrap-tagsinput" name="tags" data-role="tagsinput" placeholder="Enter at least 1 tag" value="{{ old('tags') }}" />
 							
 							@if ($errors->has('tags'))
 			                    <strong>{{ $errors->first('tags') }}</strong>
@@ -89,9 +89,9 @@
 						</div>
 						
 						<div class="text-center">
-							<button type="submit" class="btn btn-warning btn-lg mt-1">
+							{{-- <button type="submit" class="btn btn-warning btn-lg mt-1">
 								Upload Post
-							</button>
+							</button> --}}
 						</div>
 					</form>
 				</div>
@@ -103,13 +103,18 @@
 @endsection
 
 
-@section('plugins')
+@section('js')
 
 <script src="{{ asset('js/preview.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
+<script src="{{ asset('js/tagsinput.js') }}"></script>
 <script>
+
+
 	
 $(function(){
+	// $('form input').on('keypress', function(e) {
+	//     return e.which !== 13;
+	// });
 	var imageLoader = document.getElementById('filePhoto');
 	 imageLoader.addEventListener('change', handleImage, false);
 
@@ -120,6 +125,10 @@ $(function(){
 	    }
 	    reader.readAsDataURL(e.target.files[0]);
 	}	
+
+	// $(function.e(val)){
+	// 	echo "lol";
+	// }
 });
 
 </script>

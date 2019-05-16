@@ -16,6 +16,9 @@ Auth::routes();
 
 
 Route::get("/ar",'CrawlController@index');
+Route::get('/rst','CrawlController@rst');
+
+Route::post('/rst','CrawlController@storeRst');
 
 Route::get('/posts/create','PostController@create');
 Route::get('/posts/{post}/edit','PostController@edit');

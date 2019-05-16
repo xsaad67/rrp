@@ -19,7 +19,27 @@ class CrawlController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+
+
+        for($i=1; $i<=200;$i++){
+            
+            $link = "https://www.azquotes.com/author/105-Joseph_Addison?p=".$i;
+
+            $crawler = Goutte::request('GET', $link);
+
+            $rangeToCrawl = ($crawler->filter('div.pager > li:nth-last-child(2)')->count() > 0) ? 
+                          $crawler->filter('div.pager > li:nth-last-child(2)')->first()->text() :
+                          1;
+
+            dump($rangeToCrawl);
+            if($i==$rangeToCrawl){dump($i); break;}
+
+        }
+        
+
+        dd("yes");
+
         $link = "https://imgflip.com/meme/Distracted-Boyfriend";
         $crawler = Goutte::request('GET', $link);
         $crawler->filter('a.meme-link > img')->first()->each(function($node){
@@ -199,5 +219,19 @@ class CrawlController extends Controller
     public function destroy(Crawl $crawl)
     {
         //
+    }
+
+    public function rst()
+    {
+        return view("comments.rst");
+    }
+
+    public function storeRst(Request $request)
+    {
+        dd($request->all());
+        
+        foreach($request->file as $file){
+            dump($file->getClientOriginalName());
+        }
     }
 }

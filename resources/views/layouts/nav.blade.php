@@ -22,7 +22,7 @@
                                             <g>
                                                 <path stroke="#000" transform="rotate(-77.1923828125 -15.078857421875005,170.79100036621094)" d="m-428.125224,-8.22893l872.19957,0l-3.456666,298.309801c-711.65609,-186.952814 -478.74996,115.206646 -914.849745,50.456411l46.106841,-348.766212z" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#2a2b2d" />
                                             </g>
-                                        </svg><img src="../../../img.youtube.com/vi/SG4hoev5uaI/maxresdefault.jpg" alt=""><a class="btn btn-primary btn-lg btn-rounded btn-shadow" href="shop-product.html">View Game</a></div>
+                                        </svg><a class="btn btn-primary btn-lg btn-rounded btn-shadow" href="shop-product.html">View Game</a></div>
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-6 col-lg-3">
@@ -62,21 +62,21 @@
                                 <div class="dropdown-header mb-0"><i class="ya ya-shopping-cart"></i> Cart (3)</div>
                                 <div class="dropdown-scrollable">
                                     <ul class="dropdown-list">
-                                        <li class="dropdown-list-item"><img class="mr-1" src="../../../static.giantbomb.com/uploads/scale_small/0/1992/3023135-screen%2bshot%2b2018-05-23%2bat%2b7.03.13%2bpm.png" alt="">
+                                        <li class="dropdown-list-item">
                                             <div class="pl-2"><a class="font-weight-semibold" href="shop-product.html">Battlefield V</a>
                                                 <div class="font-size-md text-muted">Quantity: 1</div>
                                                 <div class="font-size-md font-weight-bold mt-1">$75.00</div>
                                             </div>
                                             <button type="button" class="btn btn-link cart-remove"><i class="ya ya-trash"></i></button>
                                         </li>
-                                        <li class="dropdown-list-item"><img class="mr-1" src="../../../static.giantbomb.com/uploads/scale_small/11/118833/2996375-91somf876vl._sl1500_.jpg" alt="">
+                                        <li class="dropdown-list-item">
                                             <div class="pl-2"><a class="font-weight-semibold" href="shop-product.html">God of War</a>
                                                 <div class="font-size-md text-muted">Quantity: 1</div>
                                                 <div class="font-size-md font-weight-bold text-danger mt-1">$49.35</div>
                                             </div>
                                             <button type="button" class="btn btn-link cart-remove"><i class="ya ya-trash"></i></button>
                                         </li>
-                                        <li class="dropdown-list-item"><img class="mr-1" src="../../../static.giantbomb.com/uploads/scale_small/0/3699/2945734-the%2bwitcher%2b3%2b-%2bwild%2bhunt.jpg" alt="">
+                                        <li class="dropdown-list-item">
                                             <div class="pl-2"><a class="font-weight-semibold" href="shop-product.html">The Witcher 3: Wild Hunt</a>
                                                 <div class="font-size-md text-muted">Quantity: 1</div>
                                                 <div class="font-size-md font-weight-bold mt-1">$28.15</div>

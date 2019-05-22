@@ -10,6 +10,7 @@
 @endsection
 @section('content')
 
+
 	<section class="py-lg-5">
 
 	    <div class="container">
@@ -20,7 +21,7 @@
 	                    <div class="widget-body">
 	                        <p>I am a frontend developer &amp; web designer. I love to work on creative and standalone projects like gameforest.</p>
 	                        <p class="font-size-sm font-weight-semibold mb-1"><i class="ya ya-pin mr-1"></i> Budapest</p>
-	                        <p class="font-size-sm font-weight-semibold mb-1"><i class="ya ya-twitter mr-1"></i> <a href="https://twitter.com/yakuthemes" target="_blank">yakuthemes</a></p>
+	                        <p class="font-size-sm font-weight-semibold mb-1"><i class	="ya ya-twitter mr-1"></i> <a href="https://twitter.com/yakuthemes" target="_blank">yakuthemes</a></p>
 	                        <p class="font-size-sm font-weight-semibold mb-1"><i class="ya ya-calendar mr-1"></i> Joined December 2009</p><a class="btn btn-outline btn-sm btn-block mt-3" href="#" role="button">Send message</a></div>
 	                </div>
 	                <!-- end .widget -->

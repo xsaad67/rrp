@@ -14,10 +14,6 @@
 Route::get("/","PageController@index");
 Auth::routes();
 
-
-Route::get("/ar",'CrawlController@index');
-Route::get('/rst','CrawlController@rst');
-
 Route::post('/rst','CrawlController@storeRst');
 
 Route::get('/posts/create','PostController@create');
@@ -52,7 +48,14 @@ Route::post('/meme/store','MemeController@store');
 Route::get('/word','WordController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/users/{slug}','ProfileController@show');
+
 
 Route::get('/meme/upload','PostController@create');
 Route::post('post','PostController@store');
+
+Route::prefix('users')->group(function(){
+   Route::get("/","ProfileController@index");
+   Route::get("/settings","ProfileController@edit");
+   Route::post("update","ProfileController@update");
+   Route::post("change-password","ProfileController@changePwd");
+});

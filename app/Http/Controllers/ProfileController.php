@@ -7,21 +7,20 @@ use App\User;
 
 class ProfileController extends Controller
 {
-    
-    public function show($slug){
-
-    	$user = User::where('slug',$slug)->firstOrFail();
-    	$posts = $user->publishedPost()->paginate(5);
-    	return view('users.show',compact('posts'));
+    public function index(){
+        return abort(404);
     }
 
-    public function edit(){
-
-    	$user = auth()->id();
-    	return $user;
+    public function edit(Request $request){
+        return view("profiles.settings");
     }
 
     public function update(Request $request){
-    		
+        
     }
+
+    public function changePwd(Request $request){
+        
+    }
+
 }
